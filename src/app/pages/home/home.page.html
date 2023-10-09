@@ -1,16 +1,19 @@
-<ion-header [translucent]="true">
-  <ion-toolbar style="background-color: red">
+<ion-header>
+  <ion-toolbar>
     <ion-title style="background-color: red">
       Weather Maribor
     </ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content [fullscreen]="true">
+
+<ion-content>
   <div id="container">
-    <ion-card>
+    <ion-spinner name="circular" *ngIf="loading"></ion-spinner>
+    <ion-card *ngIf="currentWeather">
       <ion-card-header>
-        <ion-card-title>Card Title</ion-card-title>
+        <!-- <app-weather-now [weather]="currentWeather"></app-weather-now> -->
+        <ion-card-title >{{currentWeather.name}}</ion-card-title>
         <ion-card-subtitle>Card Subtitle</ion-card-subtitle>
       </ion-card-header>
 

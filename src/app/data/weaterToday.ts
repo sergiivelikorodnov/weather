@@ -1,6 +1,6 @@
-import { ICurrentWeater } from '../models/weather'
+import { ICurrentWeather } from '../models/weather'
 
-export const weaterToday: ICurrentWeater = {
+export const weatherToday: ICurrentWeather = {
   coord: {
     lon: 15.6467,
     lat: 46.5547

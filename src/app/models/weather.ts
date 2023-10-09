@@ -58,7 +58,7 @@ export interface IWeatherList {
   }
 }
 
-export interface ICurrentWeater {
+export interface ICurrentWeather {
   coord: {
     lon: number
     lat: number
