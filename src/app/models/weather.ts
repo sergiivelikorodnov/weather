@@ -101,3 +101,32 @@ export interface ICurrentWeather {
   name: string
   cod: number
 }
+
+interface WeatherData {
+  date: Date
+  img: string
+  tempMin: number
+  tempMax: number
+  cast: string
+  castDescription: string
+}
+export interface GroupedWeatherData {
+  [dateString: string]: WeatherData
+}
+
+export class currentWeatherDTO {
+  date: Date
+  img: string | undefined
+  tempMin: number | undefined
+  tempMax: number | undefined
+  cast: string | undefined
+  castDescription: string | undefined
+  city: string | undefined
+  feelsLike: number | undefined
+
+  constructor() {
+    this.date = new Date()
+    this.img = this.tempMin = this.tempMax = this.cast = this.castDescription = undefined
+    this.city = this.feelsLike = undefined
+  }
+}
