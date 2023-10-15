@@ -1,0 +1,11 @@
+<div *ngIf="errorService.error$ | async as error">
+  <ion-alert
+    [isOpen]="error"
+    header="Alert"
+    subHeader="Important message"
+    message="{{error}}"
+    [buttons]="alertButtons"
+    (didDismiss)="errorService.clear()"
+  ></ion-alert>
+</div>
+
