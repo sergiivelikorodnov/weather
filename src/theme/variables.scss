@@ -2,6 +2,30 @@
 // http://ionicframework.com/docs/theming/
 
 /** Ionic CSS Variables **/
+
+:root {
+  --ion-color-custom: #495fff;
+  --ion-color-custom-rgb: 73,95,255;
+  --ion-color-custom-contrast: #ffffff;
+  --ion-color-custom-contrast-rgb: 255,255,255;
+  --ion-color-custom-shade: #4054e0;
+  --ion-color-custom-tint: #5b6fff;
+}
+
+:root[mode=ios] .gabarito,
+:root[mode=md] .gabarito{
+  --ion-font-family:  'Gabarito'!important;
+  font-family:  'Gabarito' !important;
+}
+.ion-color-custom {
+  --ion-color-base: var(--ion-color-custom);
+  --ion-color-base-rgb: var(--ion-color-custom-rgb);
+  --ion-color-contrast: var(--ion-color-custom-contrast);
+  --ion-color-contrast-rgb: var(--ion-color-custom-contrast-rgb);
+  --ion-color-shade: var(--ion-color-custom-shade);
+  --ion-color-tint: var(--ion-color-custom-tint);
+}
+
 :root {
   /** primary **/
   --ion-color-primary: #3880ff;
@@ -234,20 +258,6 @@
     --ion-tab-bar-background: #1f1f1f;
 
     --ion-card-background: #1e1e1e;
-  }
-
-  .header-md {
-    -webkit-box-shadow: rgba(0, 0, 0, 0.12) 0px 4px 16px;
-    box-shadow: rgba(0, 0, 0, 0.12) 0px 4px 16px;
-  }
-
-  .title-default{
-    width: 100%;
-    padding: 0 16px;
-  }
-
-  ion-header{
-    height: 44px;
   }
 
   .toolbar-title{

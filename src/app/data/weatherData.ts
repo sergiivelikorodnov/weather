@@ -1,5 +1,5 @@
 import { IWeatherList } from '../models/weather'
-
+//MOCK DATA FOR TESTING
 export const weatherData: IWeatherList = {
   cod: '200',
   message: 0,

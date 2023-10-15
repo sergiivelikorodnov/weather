@@ -1,10 +1,10 @@
 #container {
   text-align: center;
 
-  position: absolute;
+  position: relative;
   left: 0;
   right: 0;
-  top: 50%;
+  top: 50px;
   transform: translateY(-50%);
 }
 
@@ -24,4 +24,197 @@
 
 #container a {
   text-decoration: none;
+}
+
+.container{
+  padding: 0 16px;
+}
+
+.dailyWeatherContainer{
+  margin-top: 8px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-bottom: 16px;
+  width: 100%;
+}
+
+ion-header{
+  ion-toolbar{
+    ion-select{
+      margin-left: 10px;
+    }
+    height: 44px;
+    --background:#f1f1f1;
+    padding: 0 16px;
+    display: flex;
+    align-items: center;
+
+    ion-title{
+      padding: 0;
+    }
+
+    ion-icon{
+      font-size: 24px;
+    }
+  }
+}
+
+ion-content{
+  .container{
+      ion-card{
+        width: 100%;
+        position: relative;
+        margin: 0;
+      }
+    }
+}
+
+.topCard{
+  margin: 8px 16px;
+  box-shadow: none;
+  border: 1px solid #d1d1d1;
+  background: linear-gradient(90deg, rgba(255,255,255,1) 0%, rgba(231,231,231,1) 100%);
+
+  ion-card-header{
+    .reloadContainer{
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+
+      ion-buttons{
+        z-index: 2;
+      }
+    }
+
+    position: relative;
+    img{
+      width: 520px;
+      position: absolute;
+      top: -230px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      left: -190px;
+      max-width: fit-content;
+    }
+
+    ion-card-subtitle{
+      font-weight: 400;
+    }
+
+    ion-label{
+      z-index: 2;
+        h2{
+          font-size: 36px;
+          color: black;
+        }
+        .castContainer{
+          display: flex;
+          justify-content: space-between;
+          p{
+            color: #565656;
+          }
+        }
+        .castContrast{
+          text-transform: capitalize;
+          color:#3880ff;
+          font-size: 18px;
+        }
+      }
+    }
+  }
+
+ion-item-group{
+  ion-item{
+    width: 100%;
+
+    ion-card{
+      width: 100%;
+      margin: 0px 2px;
+      border: 1px solid #d1d1d1;
+      background: rgb(255,255,255);
+      background: linear-gradient(90deg, rgba(255,255,255,1) 0%, rgba(231,231,231,1) 100%);
+      box-shadow: none;
+
+      ion-card-header{
+
+        position: relative;
+        img{
+          width: 320px;
+          position: absolute;
+          top: -140px;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          left: -140px;
+          max-width: fit-content;
+        }
+        ion-label{
+          z-index: 2;
+          display: flex;
+          justify-content: space-between;
+          align-items: flex-end;
+
+
+          .castContrast{
+            text-transform: capitalize;
+            color:#3880ff;
+            font-size: 14px;
+          }
+          .tempContainer{
+            display: flex;
+            align-items: flex-end;
+            gap: 10px;
+
+            h2{
+              font-size: 24px;
+              color: black
+            }
+
+            p{
+              font-size: 16px;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+.todayContainer{
+  display: flex;
+  justify-content: space-between;
+  height: 100%;
+}
+
+@media screen and (min-width: 768px) {
+  .container {
+    padding: 0 32px;
+    margin-bottom: 16px;
+    display: flex;
+    gap: 16px;
+
+    .topCard{
+
+      img{
+        width: 1024px;
+        top: -360px;
+        left: -320px;
+        max-width: fit-content;
+      }
+    }
+  }
+
+  .topCard{
+    margin: 8px 32px;
+  }
+
+  .dailyWeatherContainer{
+    margin: 0;
+  }
+  ion-header{
+    height: 56px;
+    padding: 0 32px;
+  }
 }

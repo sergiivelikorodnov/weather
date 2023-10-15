@@ -1,5 +1,5 @@
 import { ICurrentWeather } from '../models/weather'
-
+//MOCK DATA FOR TESTING
 export const weatherToday: ICurrentWeather = {
   coord: {
     lon: 15.6467,
@@ -15,10 +15,10 @@ export const weatherToday: ICurrentWeather = {
   ],
   base: 'stations',
   main: {
-    temp: 290.01,
-    feels_like: 289.4,
-    temp_min: 289.09,
-    temp_max: 290.66,
+    temp: 29.01,
+    feels_like: 28.4,
+    temp_min: 28.09,
+    temp_max: 29.66,
     pressure: 1022,
     humidity: 63
   },

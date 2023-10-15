@@ -8,6 +8,6 @@ import { ErrorService } from 'src/app/services/errorService/error.service'
 })
 export class GlobalErrorComponent implements OnInit {
   constructor(public errorService: ErrorService) {}
-
+  public alertButtons = ['OK']
   ngOnInit() {}
 }

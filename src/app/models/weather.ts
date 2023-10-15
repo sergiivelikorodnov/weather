@@ -104,29 +104,44 @@ export interface ICurrentWeather {
 
 interface WeatherData {
   date: Date
-  img: string
+  img: string | undefined
   tempMin: number
   tempMax: number
-  cast: string
-  castDescription: string
+  cast: string | undefined
+  castDescription: string | undefined
 }
 export interface GroupedWeatherData {
   [dateString: string]: WeatherData
 }
 
 export class currentWeatherDTO {
+  constructor() {
+    this.date = new Date()
+    this.img = this.tempMin = this.tempMax = this.cast = this.castDescription = undefined
+    this.city = this.feelsLike = undefined
+  }
   date: Date
   img: string | undefined
+  windSpeed: number | undefined
+  temp: number | undefined
   tempMin: number | undefined
   tempMax: number | undefined
   cast: string | undefined
   castDescription: string | undefined
   city: string | undefined
   feelsLike: number | undefined
+}
 
+export class dailyWeatherDTO {
   constructor() {
-    this.date = new Date()
-    this.img = this.tempMin = this.tempMax = this.cast = this.castDescription = undefined
-    this.city = this.feelsLike = undefined
+    this.date = undefined
+    this.img = this.cast = this.castDescription = undefined
+    this.tempMin = this.tempMax = 0
   }
+  date: string | undefined
+  img: string | undefined
+  tempMin: number
+  tempMax: number
+  cast: string | undefined
+  castDescription: string | undefined
 }

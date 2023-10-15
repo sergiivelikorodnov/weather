@@ -1,24 +1,65 @@
-<ion-header>
+<ion-header class="ion-no-border">
   <ion-toolbar>
-    <ion-title style="background-color: red">
+    <ion-select value="{{language}}" (ionChange)="languageChange($event)">
+      <ion-select-option value='si'>Slovenija</ion-select-option>
+      <ion-select-option value='en'>English</ion-select-option>
+    </ion-select>
+    <ion-title size="large" slot="end" color="custom">
       Weather Maribor
     </ion-title>
+    <ion-icon slot="start" color="custom" name="thunderstorm-outline"></ion-icon>
   </ion-toolbar>
 </ion-header>
 
 
 <ion-content>
-  <div id="container">
-    <ion-card *ngIf="currentWeaterData">
-      <ion-card-header>
-        <!-- <app-weather-now [weather]="currentWeather"></app-weather-now> -->
-        <ion-card-title >{{currentWeaterData.city}}</ion-card-title>
-        <ion-card-subtitle>Card Subtitle</ion-card-subtitle>
+  <ion-card *ngIf="currentWeaterData" class="topCard">
+    <ion-card-header>
+      <div class="reloadContainer">
+        <ion-buttons>
+          <ion-button class="bordered" fill="solid" color="light" (click)="loadCurrentWeather()">
+            <ion-icon color="custom" name="refresh-outline"></ion-icon>
+          </ion-button>
+        </ion-buttons>
+        <ion-card-title color="custom" class="ion-text-right">{{currentWeaterData.city}}</ion-card-title>
+      </div>
+      <ion-card-subtitle class="ion-text-right">{{'updatedDate' | translate}} {{updateWeatherDate}}</ion-card-subtitle>
+    </ion-card-header>
+  </ion-card>
+  <div class="container">
+    <ion-card *ngIf="currentWeaterData" class="topCard">
+      <ion-card-header class="todayContainer">
+        <div>
+          <img src="{{currentWeaterData.img}}" alt="">
+          <ion-card-title class="ion-text-right">{{currentWeaterData.cast}}</ion-card-title>
+          <ion-card-subtitle class="ion-text-right">{{'windSpeed' | translate}} {{currentWeaterData.windSpeed}} m/sec</ion-card-subtitle>
+        </div>
+        <ion-label >
+          <h2>{{currentWeaterData.temp | number: '1.0-0'}}°</h2>
+          <div class="castContainer">
+            <p>{{currentWeaterData.tempMax | number: '1.0-0'}}°/{{currentWeaterData.tempMin | number: '1.0-0'}}° feels like {{currentWeaterData.feelsLike | number: '1.0-0'}}°</p>
+            <p class="castContrast">{{currentWeaterData.castDescription}}</p>
+          </div>
+        </ion-label>
       </ion-card-header>
-
-      <ion-card-content>
-        Here's a small text description for the card content. Nothing more, nothing less.
-      </ion-card-content>
     </ion-card>
+    <ion-item-group class="dailyWeatherContainer" *ngIf="dailyWeather">
+      <ion-item class="ion-no-padding" style="--inner-padding-end: 0 !important;" lines="none" *ngFor="let weather of dailyWeatherData">
+        <ion-card>
+          <ion-card-header >
+            <img src="{{weather.img}}" alt="">
+            <ion-card-title class="ion-text-right">{{weather.date}}</ion-card-title>
+            <ion-label>
+              <div class="tempContainer">
+                <h2>{{weather.tempMax | number: '1.0-0'}}°/{{weather.tempMin | number: '1.0-0'}}° </h2>
+                <p>{{weather.cast}}</p>
+              </div>
+              <p class="castContrast">{{weather.castDescription}}</p>
+            </ion-label>
+          </ion-card-header>
+        </ion-card>
+      </ion-item>
+    </ion-item-group>
   </div>
+
 </ion-content>
