@@ -97,8 +97,9 @@ export class HomePage implements OnInit {
       // Create the new array from the grouped data
       const dailyData = Object.values(groupedData)
 
-      if (dailyData && dailyData.length > 2) {
-        for (let w of dailyData.splice(1)) {
+      if (dailyData && dailyData.length > 1) {
+        if (dailyData.length == 6) dailyData.splice(1)
+        for (let w of dailyData) {
           const weatherDTO = new dailyWeatherDTO()
           weatherDTO.img = w.img
           weatherDTO.castDescription = w.castDescription
@@ -119,17 +120,17 @@ export class HomePage implements OnInit {
     if (id == 800) {
       return 'assets/sun1.png'
     } else if (id >= 200 && id <= 299) {
-      return 'assets/moon_lighting.png'
+      return 'assets/moon_lighting1.png'
     } else if (id >= 300 && id <= 399) {
-      return 'assets/moon_rain.png'
+      return 'assets/moon_rain1.png'
     } else if (id >= 500 && id <= 599) {
-      return 'assets/rain1.png'
+      return 'assets/rain2.png'
     } else if (id >= 600 && id <= 699) {
-      return 'assets/rain_snow.png'
+      return 'assets/rain_snow1.png'
     } else if (id >= 700 && id <= 799) {
-      return 'assets/sun_fog.png'
+      return 'assets/sun_fog1.png'
     } else if (id >= 801 && id <= 899) {
-      return 'assets/sun_clouds.png'
+      return 'assets/sun_clouds1.png'
     } else {
       return 'assets/sun1.png' // Default image
     }
