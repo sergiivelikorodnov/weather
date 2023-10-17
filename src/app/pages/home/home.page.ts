@@ -98,7 +98,7 @@ export class HomePage implements OnInit {
       const dailyData = Object.values(groupedData)
 
       if (dailyData && dailyData.length > 1) {
-        if (dailyData.length == 6) dailyData.splice(1)
+        if (dailyData.length == 6) dailyData.shift()
         for (let w of dailyData) {
           const weatherDTO = new dailyWeatherDTO()
           weatherDTO.img = w.img
